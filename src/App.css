@@ -1,38 +1,102 @@
-.App {
-  text-align: center;
-}
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Hahmlet:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Young+Serif&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&display=swap');
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
+body {font-family: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; color: #666; font-weight: 400;}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
+* {box-sizing: border-box; padding:0; margin: 0;}
+li {list-style: none;}
+a {text-decoration: none; color: inherit}
+.container {background: #fff;}
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
+/* navigator - nav */
+.navigation {width: 14vw; position: fixed; top:0; left: 0; z-index: 50; background: #fff; box-sizing: border-box;}
+nav .container {display: flex; flex-direction: column; text-align: left; margin: 0; box-sizing: border-box; padding: 10px 20px; align-items: left;}
+.container .navbar-nav {display: flex; flex-direction: column; align-items: left; height: 100vh; justify-content:top; padding-top: 40%;}
+.navbar-nav a {font-size: 18px; display: block; font-weight: 400; margin-bottom: 10px;}
+.navbar-nav .logo{margin-bottom: 30px; font-size: 16px; color: #111}
 
-.App-link {
-  color: #61dafb;
-}
+/* home */
+.home {position: relative; left: 14vw; width: calc(100% - 14vw);box-sizing: border-box;}
+.home .container {margin: 35px 30px 30px 0;}
+.home h2 {font-size: 24px; color: #000; font-weight: 600; margin-bottom: 25px; position: relative;}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* trend */
+.trend-wrap {display: flex; gap: 20px;}
+.trend-wrap > div {width: calc(100%/3);}
+.trend-wrap h3 {font-size: 20px; color: #888}
+.trend {background-repeat: no-repeat; background-position: center; background-size: cover; position: relative; display: flex; align-items: center; height: 220px; width: 100%; border-radius: 4px; overflow: hidden;}
+.trend::before {width: 100%; height: 250px; content: ''; background-image: linear-gradient(to top, rgb(66, 66, 66), rgba(66, 66, 66, 0.2));position: absolute; top:0; left: 0; transition: all 0.3s}
+.trend::after {content: '전체 트렌드'; width: 100%; position: absolute; top: 0; left: 0; z-index: 10; text-align: center; line-height: 220px; font-size: 32px; color: #fff; font-weight: 600; text-shadow: 0 0 10px rgba(255,255,255,0.4), 0 0 36px rgba(255,255,255,0.9); transition: 0.3s;}
+.trend-wrap div:nth-child(2) .trend::after{content: '지금 인기있는 영화';}
+.trend-wrap div:nth-child(3) .trend::after{content: '인기 프로그램';}
+/* trend-wrap 호버효과 */
+.trend:hover::before {background-color: rgba(255,255,192,0.1); backdrop-filter: blur(10px);}
+.trend:hover::after {font-size: 34px; top:-2px; text-shadow: unset;}
+
+/* banner */
+.mainVisual {display: flex; padding: 30px 0; margin-bottom: 40px;}
+.banner {height: 420px; width: 45%; background-position: center; background-size: cover; background-repeat: no-repeat; float: left; border-radius: 6px;}
+.banner-info {width:calc(100% - 45%); box-sizing: border-box; padding: 30px 20px 30px 40px; background: #fafafa; overflow: hidden; height: 420px;}
+.banner-info .genre .badge:first-child {background: #111; color: #fff}
+.banner-info .genre .badge {font-size: 20px; margin-right: 10px; border-radius: 30px; font-weight: 500; color: #444; border: 1px solid #444;}
+.banner-info .genre .bg-light {background: #444;}
+#para_div h3 {font-size: 46px; margin: 30px 0 16px; font-family: 'Yeseva One', cursive; font-weight: 400; color: #111; font-family: 'Hahmlet', serif;}
+#para_div .desc {font-size: 16px; color: #888; letter-spacing: -0.03em; width: 85%; line-height: 1.68; box-sizing: border-box; overflow: hidden; white-space: normal; display:-webkit-box; -webkit-line-clamp: 6; -webkit-box-orient: vertical;}
+.vote-average {margin-top: 20px; box-sizing: border-box; font-size: 20px; width:85%; text-align: right; font-weight: 500;}
+
+/* contents -> home.js */
+.contents {margin-top: 40px;}
+.contents h2{margin: 60px 0 20px; font-size: 24px; font-weight: 600; color: #111}
+
+/* card - MovieCard. js */
+.card-group {flex-direction: column; height: 420px;}
+.card {height: 300px; width: calc(100% - 20px); border-color: transparent; margin-bottom: 50px; transition: 0.3s; background-repeat: no-repeat; background-size: cover; background-position: center; margin-right: 20px; cursor: pointer;}
+.card .card-overlay {
+  background: rgba(0,0,0,0.2);
+  backdrop-filter: blur(10px);
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  box-sizing: border-box;
+  transition: all 0.3s;
+  opacity: 0;
+  border-radius: 6px;
+  position: relative;
 }
+.card:hover .card-overlay {opacity: 1;}
+.card .card-overlay .vote-group span {position: absolute; bottom:30px; right: 10px ;font-size: 48px; margin: 0 5px; border-radius: 6px; padding: 3px 4px; font-family: 'Young Serif', serif; font-weight: 400; letter-spacing: -0.06em;}
+.card .card-overlay .vote-group .vote-average::before {content: ''; display: inline-block; width: 30px; height: 30px; background: url(/src/asset/star_filled.png) no-repeat center; vertical-align: middle -3px; margin-right: 4px;}
+.card-info h4 {font-size: 17px; font-weight: 500; color: #111; margin: 15px 0 6px; letter-spacing: -0.03em; cursor: pointer;}
+.card-info .genre .badge {margin-right: 2px;  overflow: hidden; white-space: normal; }
+.card-info .genre .bg-black {background: #888;}
+.card-info .token-wrap {font-size: 15px; text-transform: uppercase; color: #999;}
+.token-wrap .date {width: 38px; overflow: hidden; float: left; white-space:nowrap; letter-spacing: 1px; margin-right: 4px;} 
+
+/* movieDetail */
+.detail-img {max-width: 100%; height: 80vh; background-repeat: no-repeat; background-size: contain; background-position: center;}
+.detail-section {margin-top: 90px; position: relative;}
+.detail-tagline {font-size: 24px; margin: 0 0 10px; font-weight: 400; line-height: 1; color: #666; margin-bottom: 16px;}
+.detail-title {font-size: 52px;font-weight: 500; color: #111; margin: 10px 0 24px; font-family: 'Hahmlet',cursive;}
+.detail-overview {font-size: 16px; padding: 0 20px 30px 0; font-weight: 400;width: 95%; line-height: 1.68; word-wrap: break-word;}
+.detail-info {padding: 0 0 10px 0; border-bottom: 1px solid #ddd; display: flex; justify-content: space-between; align-items: flex-end;}
+.detail-info * { font-size: 20px; opacity: 0.8;}
+.detail-vote {line-height: 1; margin-bottom: 20px;}
+.detail-vote img {padding-bottom: 5px; margin-right: 4px;}
+.detail-vote > span {opacity: 1;}
+.util-area {display: flex;}
+.btn-area {display: flex; flex-direction: column; text-align: center; width: 70px; justify-content: center; transition: 0.3s; height:80px; cursor: pointer;}
+.btn-area:hover {background: #efefef; opacity: 1; border-radius: 10px;}
+.btn-area img {width: 30px; margin: 0 auto;}
+.util-area button {background: none; font-size: 14px; border: none;}
+
+.detail-info2 {display: flex; flex-direction: column; font-size: 16px; background: #fafafa; padding: 20px 20px 40px}
+.detail-info2 span {color:#111; text-align: left; width:80px;  margin: 0 10px 0 0; border-radius: 0; font-weight: 500; display: inline-block;}
+.btnVideo {width: 100%;}
+.detail-info2 .product {display: flex;}
+.detail-info2 .product div {margin-right: 10px; font-size: 15px;}
+.btn_back {width: 40px; height: 40px; margin-left: 15vw; position: fixed; top:20px; left:0; transition: 0.3s;}
+.btn_back:hover {margin-left: calc(15vw - 10px);}
