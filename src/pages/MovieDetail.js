@@ -14,7 +14,7 @@ const MovieDetail = () => {
     let response = await fetch(url);
     let data = await response.json();
     setShowDetail(data)
-    console.log(data)
+    //console.log(data)
   }
  
   useEffect(() => {

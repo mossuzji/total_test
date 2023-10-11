@@ -34,7 +34,8 @@ const Movies = () => {
       <Container>
       <h2 className='secTit'>{findPageSource.secTit}</h2>
       <div className="card-area">
-      {findPageSource.list.results.map((item, idx) => (
+      {
+      findPageSource.list.results.map((item, idx) => (
           <div className='card-group' key={idx}>
             <div
               className="card"
@@ -53,10 +54,10 @@ const Movies = () => {
             </div>
             {/* //card-groupe */}
             <div className='card-info'>
-              <h4 onClick={()=> navigate(`/movies/${item.id}`)}>{item.title}</h4>
+              <h4 onClick={()=> navigate(`/movies/${item.id}`)}>{item.title}{item.name}</h4>
             </div>
             <div className="token-wrap">
-                <span className="date">{item.release_date}</span>
+                <span className="date">{item.release_date}{item.first_air_date}</span>
                 <span className='lang'>&middot; {item.original_language}</span>
             </div>
           </div>
