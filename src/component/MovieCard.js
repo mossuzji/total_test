@@ -49,10 +49,11 @@ const MovieCard = ({item}) => {
             </div>
             <div className='genre'>
                 {
-                    item.genre_ids.map((id,idx)=>
+
+                   item.genre_ids.map((id,idx)=>
                     <Badge bg="dark" text="light" key={idx}>
-                        {genreList.find(item=>item.id==id).name}
-                    </Badge>,
+                        {genreList.find(item =>item.id==id).name}
+                    </Badge>
                     )
                 }
             </div>   

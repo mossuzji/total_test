@@ -24,7 +24,9 @@ const MovieDetail = () => {
 
   return (
     <Container>
-      <Link to ='/' className='btn_back'><img src={require('../asset/arrow_back.png')} alt="뒤로가기" /></Link>
+      <div className="backArea">
+        <Link to ='/' className='btn_back'><img src={require('../asset/arrow_back.png')} alt="뒤로가기" /></Link>
+      </div>
       <Row className='detail-section'>
         <Col lg={6} className='detail-img-card'>
           <div
@@ -61,11 +63,11 @@ const MovieDetail = () => {
             </div>
             <div className='product'>
               <span>제작사</span>
-              {
+              {/* {
                 showDetail?.production_companies.map((company,idx)=>
                     <div>{company.name}</div>
                 )
-              }  
+              } */}  
             </div>   
           </div>
           <>

@@ -25,6 +25,7 @@ const responsive = {
 
 const MovieSlide = ({ movie }) => {
   //매개 변수에 부모에게 받을 데이터 저장소를 선언함
+  console.log(movie)
   return (
     <div>
         <Carousel responsive={responsive}>
@@ -34,6 +35,7 @@ const MovieSlide = ({ movie }) => {
                 <MovieCard key={idx} item={item} />
               ))
             }
+            {console.log('무비슬라이드',movie)}
         </Carousel>
     </div>
   )
